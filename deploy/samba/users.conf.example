@@ -1,0 +1,2 @@
+site-a-writer:1000:site-a:1000:<GENERATE_ON_TARGET>:/shares/site-a
+site-b-writer:1001:site-b:1001:<GENERATE_ON_TARGET>:/shares/site-b

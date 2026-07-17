@@ -1,0 +1,30 @@
+.DS_Store
+
+# Secrets and generated server credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+deploy/samba/users.conf
+
+# Generated coworker handoff packages
+handoff/
+**/handoff/
+
+# Runtime data and backups
+site-data/
+backups/
+*.tar
+*.tar.gz
+
+# Keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Local editor files
+.idea/
+.vscode/

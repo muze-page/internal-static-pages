@@ -1,0 +1,29 @@
+name: quality
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate repository
+        run: ./scripts/check.sh
+
+      - name: Scan Git history for secrets
+        run: >-
+          docker run --rm
+          -v "${GITHUB_WORKSPACE}:/repo"
+          zricethezav/gitleaks:v8.21.2
+          git /repo --redact --no-banner
