@@ -2,7 +2,7 @@
 
 本目录包含当前双站点拓扑的可执行配置。真实密码和 `users.conf` 只在目标 Mac mini 上生成，不进入 Git。
 
-完整前置条件、验收和回退步骤见[新 Mac mini 部署手册](../docs/operations/new-mac-mini.md)。
+完整前置条件、部署和回退步骤见[新 Mac mini 部署手册](../docs/operations/new-mac-mini.md)，正式交付前使用[试运行验收清单](../docs/operations/pilot-checklist.md)记录证据。
 
 ## 1. 创建网站卷
 
@@ -64,3 +64,18 @@ docker compose ps
 ```
 
 启动后仍必须按操作手册完成正确登录、错误密码、访客、交叉拒绝、CRUD、HTTP、缓存头和重启验证。
+
+可以先执行不修改运行状态的基础检查：
+
+```bash
+../scripts/acceptance-check.sh
+```
+
+备份和恢复命令必须从仓库根目录执行。备份包含真实密码和网站内容，只能保存到仓库外的受保护目录：
+
+```bash
+./scripts/backup.sh <BACKUP_ROOT>
+./scripts/restore.sh <BACKUP_DIR>
+```
+
+第二条命令默认只验证备份。真实恢复具有破坏性，必须先阅读试运行验收清单并显式使用 `--apply RESTORE`。

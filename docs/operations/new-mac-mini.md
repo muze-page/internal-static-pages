@@ -450,6 +450,8 @@ SITE_B_PREVIEW_URL=http://<NEW_MAC_IP>:8530/
 
 ## 12. 内网验收矩阵
 
+建议使用[试运行验收清单](./pilot-checklist.md)逐项记录结果。服务端基础状态可先运行 `./scripts/acceptance-check.sh`，但该脚本不能替代另一台 Windows 设备上的账号隔离、CRUD 和真实 Codex 盲操作。
+
 使用另一台组织内网设备验证。旁路部署阶段的 `<ACTIVE_TEST_IP>` 是新机临时 IP；正式切换后，必须再用新机最终 IP 完整执行一次。
 
 | 验证项 | 必须结果 |

@@ -11,6 +11,15 @@ fi
 
 ./scripts/check-relative-links.sh
 
+for script in scripts/*.sh; do
+  bash -n "$script"
+done
+
+./scripts/acceptance-check.sh --help >/dev/null
+./scripts/backup.sh --help >/dev/null
+./scripts/restore.sh --help >/dev/null
+./scripts/test-operation-contracts.sh
+
 if find . -path './.git' -prune -o -type f \( \
   -name '.env' -o \
   -name 'users.conf' -o \

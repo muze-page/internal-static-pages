@@ -33,8 +33,9 @@ scripts/          本地与 CI 质量检查
 2. 按[新 Mac mini 部署手册](./docs/operations/new-mac-mini.md)准备新机；
 3. 使用 [`deploy/`](./deploy/README.md) 中的受管配置部署服务；
 4. 使用 [`templates/`](./templates/README.md) 为每个同事生成独立交接文件；
-5. 按[同事发布流程](./docs/operations/coworker-publishing.md)完成真实 Windows 验收；
-6. 提交前执行：
+5. 使用[试运行验收清单](./docs/operations/pilot-checklist.md)完成旁路部署、Windows 权限、重启和恢复演练；
+6. 按[同事发布流程](./docs/operations/coworker-publishing.md)完成真实 Windows Codex 盲操作；
+7. 提交前执行：
 
 ```bash
 ./scripts/check.sh
@@ -51,6 +52,7 @@ scripts/          本地与 CI 质量检查
 ### 运维与验证
 
 - [新 Mac mini 全新部署手册](./docs/operations/new-mac-mini.md)
+- [新 Mac mini 试运行验收清单](./docs/operations/pilot-checklist.md)
 - [Codex 同事发布流程](./docs/operations/coworker-publishing.md)
 - [site-a 验证记录](./docs/evidence/site-a.md)
 - [site-b 验证记录](./docs/evidence/site-b.md)
@@ -67,6 +69,21 @@ scripts/          本地与 CI 质量检查
 参考方案已完成 Samba 多站点隔离、CRUD、Nginx 只读挂载和协商缓存验证。部署版本标识与 `.internal/deployment.json` 完成标记已进入交接规则；采用者仍应在自己的 Windows 与内网环境中完成验收。
 
 仓库中的验证结论不代表任何具体组织已经完成正式部署。
+
+## 运维命令
+
+```bash
+# 只读检查当前服务
+./scripts/acceptance-check.sh
+
+# 创建包含运行配置和两个网站卷的受保护备份
+./scripts/backup.sh <BACKUP_ROOT>
+
+# 默认只验证备份，不修改系统
+./scripts/restore.sh <BACKUP_DIR>
+```
+
+真实恢复需要额外提供 `--apply RESTORE`，并应先在隔离环境演练。详细边界见[试运行验收清单](./docs/operations/pilot-checklist.md)。
 
 ## 许可证
 
