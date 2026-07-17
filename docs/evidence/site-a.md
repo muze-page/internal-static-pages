@@ -89,6 +89,10 @@ Nginx 已增加 `Cache-Control: private, no-cache`，并保留 `ETag` 和 `Last-
 
 详细决策和边界见 [ADR-004：静态页面协商缓存与部署版本标识](../decisions/ADR-004-cooperative-cache.md)。
 
-## 尚待验收
+## 2026-07-17 真实 Windows Codex 盲操作
 
-服务端和外部 SMB 客户端均已验证。剩余唯一必要验收是：把交接包放到 同事 A 的真实 Windows 项目根目录，由其 Codex 执行一次“更新内网页面”。
+使用者确认：site-a 已在真实 Windows 项目中由同事只说“更新内网页面”，Codex 盲操作结果通过。
+
+本记录没有保存真实人员、项目、地址、网页内容或原始日志，也没有独立核对本次 `robocopy` 退出码、完成标记内容和浏览器网络请求。因此该结论证明结果级用户路径已经走通，但不能替代试运行清单中每个子项的独立证据。
+
+当前仍待验收：site-b 真实 Windows Codex 盲操作、目标环境受保护备份、隔离恢复演练，以及 Docker Desktop 和 Mac mini 重启恢复。阶段边界见 [2026-07-17 阶段收口记录](./phase-closeout-2026-07-17.md)。

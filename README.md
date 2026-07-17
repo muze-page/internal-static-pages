@@ -54,6 +54,7 @@ scripts/          本地与 CI 质量检查
 - [新 Mac mini 全新部署手册](./docs/operations/new-mac-mini.md)
 - [新 Mac mini 试运行验收清单](./docs/operations/pilot-checklist.md)
 - [Codex 同事发布流程](./docs/operations/coworker-publishing.md)
+- [2026-07-17 阶段收口记录](./docs/evidence/phase-closeout-2026-07-17.md)
 - [site-a 验证记录](./docs/evidence/site-a.md)
 - [site-b 验证记录](./docs/evidence/site-b.md)
 
@@ -66,9 +67,9 @@ scripts/          本地与 CI 质量检查
 
 ## 当前完成状态
 
-参考方案已完成 Samba 多站点隔离、CRUD、Nginx 只读挂载和协商缓存验证。部署版本标识与 `.internal/deployment.json` 完成标记已进入交接规则；采用者仍应在自己的 Windows 与内网环境中完成验收。
+参考方案已完成 Samba 多站点隔离、CRUD、Nginx 只读挂载和协商缓存验证。部署版本标识与 `.internal/deployment.json` 完成标记已进入交接规则；脱敏现场证据还记录了 site-a 一次真实 Windows Codex 盲操作的结果级通过确认。
 
-仓库中的验证结论不代表任何具体组织已经完成正式部署。
+site-b 盲操作、目标环境受保护备份、隔离恢复和整机重启仍待验证。仓库中的单站点结论不代表任何具体组织已经完成正式部署。
 
 ## 运维命令
 
