@@ -1,6 +1,12 @@
 # Internal Static Pages
 
+> **Public Preview / 公开参考预览**
+> 当前仓库记录了一个真实 Windows + Codex 发布路径的结果级验证，但双站点、重启和隔离恢复闭环仍待完成。请勿将其描述为生产就绪产品。
+> 当前阶段已停止主动功能开发；后续只在具备真实设备、维护窗口和可脱敏证据时恢复实践验收。
+
 面向组织内网静态网站的轻量发布与运维参考项目。IT 使用 Docker Samba 管理每个网站的独立写入权限，Nginx 只读提供内网页面；非技术同事只需在自己的 Windows 项目中对 Codex 说“更新内网页面”。
+
+**English summary:** A public-preview reference for small intranet static sites. Windows coworkers can publish without Git or SSH; Codex follows a fixed build, SMB sync, and verification workflow while Nginx serves each site from a read-only mount.
 
 本仓库只保存文档、脱敏配置模板和检查脚本。它不是网站内容仓库，也不使用 GitHub Pages 发布网页。
 
@@ -70,6 +76,12 @@ scripts/          本地与 CI 质量检查
 参考方案已完成 Samba 多站点隔离、CRUD、Nginx 只读挂载和协商缓存验证。部署版本标识与 `.internal/deployment.json` 完成标记已进入交接规则；脱敏现场证据还记录了 site-a 一次真实 Windows Codex 盲操作的结果级通过确认。
 
 site-b 盲操作、目标环境受保护备份、隔离恢复和整机重启仍待验证。仓库中的单站点结论不代表任何具体组织已经完成正式部署。
+
+## 需求反馈
+
+如果你的团队也需要“非技术同事通过 Codex 更新内网静态页面”，欢迎提交一条[使用场景反馈](https://github.com/muze-page/internal-static-pages/issues/new?template=use-case.yml)。请只描述匿名场景，不要附加真实 IP、域名、人员、凭据、日志或网站内容。
+
+该入口仅用于了解匿名使用场景，不代表项目恢复主动开发，也不承诺生产部署支持。
 
 ## 运维命令
 

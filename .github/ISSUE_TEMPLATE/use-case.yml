@@ -1,0 +1,58 @@
+name: 使用场景反馈
+description: 匿名说明类似的内网静态页面发布需求，帮助判断公开参考方案是否值得继续改进。
+title: "[Use case] "
+labels:
+  - use-case
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。这里只收集匿名需求，不提供生产环境支持。
+
+        **禁止填写真实 IP、主机名、域名、人员标识、账号、密码、Token、日志、网站内容或备份路径。**
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 主要终端环境
+      options:
+        - Windows + Codex
+        - Windows，不使用 Codex
+        - macOS / Linux + Codex
+        - 其他匿名环境
+    validations:
+      required: true
+
+  - type: dropdown
+    id: access-boundary
+    attributes:
+      label: 页面访问边界
+      options:
+        - 仅组织局域网
+        - VPN 或零信任网络内
+        - 尚未确定
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 当前最难解决的问题
+      description: 只描述匿名工作流和限制，不要粘贴配置或日志。
+      placeholder: 例如：同事完成静态页面后，需要 IT 手工复制文件，发布反馈慢且容易传错站点。
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-workflow
+    attributes:
+      label: 当前发布方式
+      description: 可选。请使用 Git、SMB、人工复制、内部平台等通用名称，不要写真实地址。
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: 安全确认
+      options:
+        - label: 我确认反馈中不包含真实环境信息、凭据、网站内容或可识别人员的信息。
+          required: true
